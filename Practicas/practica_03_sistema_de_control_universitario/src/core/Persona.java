@@ -1,3 +1,4 @@
+package core;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -7,8 +8,15 @@ public class Persona {
     private String direccion;
     private LocalDate fechaNacimiento;
 
-    //Metodos
+    // Constructor
 
+    public Persona(String nombre, String direccion, LocalDate fechaNacimiento) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    //Metodos
     public void actualizarDireccion(String nuevaDireccion) {
         this.direccion = nuevaDireccion;
     }
