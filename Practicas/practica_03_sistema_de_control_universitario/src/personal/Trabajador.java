@@ -10,8 +10,8 @@ public class Trabajador extends Persona {
     private String puesto;
 
     public Trabajador(String nombre, String direccion, LocalDate fechaNacimiento, String puesto, double salario, LocalDate fechaIngreso) {
+        
         super(nombre, direccion, fechaNacimiento);
-
         this.salario = salario;
         this.puesto = puesto;
         this.fechaIngreso = fechaIngreso;
@@ -21,10 +21,8 @@ public class Trabajador extends Persona {
     //metodos 
 
     public int calcularAntiguedad() {
-
         if (this.fechaIngreso == null) return 0;
         return Period.between(this.fechaIngreso, LocalDate.now()).getYears();
-
     }
 
     public void solicitarVacaciones() {
