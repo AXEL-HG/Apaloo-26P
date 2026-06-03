@@ -1,6 +1,6 @@
 # Apaloo-26T 🚀
 
-Este repositorio contiene las prácticas, ejercicios y proyectos desarrollados durante el trimestre **26-T** para la materia de **Apaloo** en la **UAM**. El objetivo principal es consolidar los conceptos de programación orientada a objetos, estructuras de datos y buenas prácticas de desarrollo de software utilizando **Java**.
+Este repositorio contiene las prácticas, ejercicios y proyectos desarrollados durante el trimestre **26-P** para la materia de **Apaloo** en la **UAM**. El objetivo principal es consolidar los conceptos de programación orientada a objetos, estructuras de datos y buenas prácticas de desarrollo de software utilizando **Java**.
 
 ---
 
