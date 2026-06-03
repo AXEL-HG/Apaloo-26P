@@ -16,15 +16,25 @@ public class PDI extends Trabajador {
         this.horasDocencia = horasDocencia;
 
     }
+    
+    //metodos
+
+    public void investigar(String tema) {
+        System.out.println("El profesor: " + getNombre() + " Esta investigando sobre el tema: " + tema);
+    }
+
+    public void impartirClase() {
+        System.out.println("El profesor: " + getNombre() + " Impartio una clase, tiene: " + getHorasDocencia() + " asignadas");
+    }
 
     //getters y setters
     public String getEspecialidad() {return especialidad;}
     public void setEspecialidad(String especialidad) {this.especialidad = especialidad;}
     
     public String getCategoria() { return categoria; }
-    public void setCategoria(String categoria) { this.categoria = categoria }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
 
     public int getHorasDocencia() {return horasDocencia;}
-    public void setHorasDocencia(int horasDocencia) {this.horasDocencia = horasDocencia}
+    public void setHorasDocencia(int horasDocencia) {this.horasDocencia = horasDocencia; }
 
 }
