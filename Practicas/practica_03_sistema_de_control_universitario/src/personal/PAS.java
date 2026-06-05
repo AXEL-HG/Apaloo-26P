@@ -69,12 +69,21 @@ public class PAS extends Trabajador {
     public void setTurno(String turno) { this.turno = turno; }
 
     public void administrarRecursos(List<Trabajador> asList) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'administrarRecursos'");
+        if (asList == null || asList.isEmpty()) {
+            System.out.println("No hay trabajadores en la lista proporcionada.");
+            return;
+        }
+        for (Trabajador t : asList) {
+            agregarPersonal(t);
+        }
+        System.out.println("Recursos administrados. Total personal registrado: " + totalPersonal);
     }
 
     public void administrarRecursos(PAS[] listaPas, int i) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'administrarRecursos'");
+        if (listaPas == null || listaPas.length == 0) return;
+        int limit = Math.min(listaPas.length, i);
+        for (int idx = 0; idx < limit; idx++) {
+            agregarPersonal(listaPas[idx]);
+        }
     }
 }

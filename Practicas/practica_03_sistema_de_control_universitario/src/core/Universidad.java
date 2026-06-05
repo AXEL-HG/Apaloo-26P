@@ -78,8 +78,8 @@ public class Universidad {
     public int getTotalDepartamentos() { return totalDepartamentos; }
 
     public void registrarDepartamento(Departamento deptoSistemas) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'registrarDepartamento'");
+        // delegate to agregarDepartamento which implements the add logic
+        agregarDepartamento(deptoSistemas);
     }
 
 }

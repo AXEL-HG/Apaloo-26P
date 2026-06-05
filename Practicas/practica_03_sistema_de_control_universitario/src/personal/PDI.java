@@ -6,6 +6,7 @@ public class PDI extends Trabajador {
     private String categoria;
     private String especialidad;
     private int horasDocencia;
+    private Doctor doctor;
 
     public PDI(String nombre, String direccion, LocalDate fechaNacimiento, String puesto, double salario,
                LocalDate fechaIngreso, String categoria, String especialidad, int horasDocencia) {
@@ -39,7 +40,9 @@ public class PDI extends Trabajador {
     public void setHorasDocencia(int horasDocencia) { this.horasDocencia = horasDocencia; }
 
     public void setDoctor(Doctor tituloDoctor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setDoctor'");
+        this.doctor = tituloDoctor;
+        System.out.println("Doctor asignado a " + getNombre() + ": " + tituloDoctor);
     }
+
+    public Doctor getDoctor() { return doctor; }
 }
