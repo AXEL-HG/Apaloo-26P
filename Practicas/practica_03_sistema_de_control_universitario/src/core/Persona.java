@@ -3,12 +3,9 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Persona {
-    // Atributos limpitos y en minúsculas
     private String nombre;
-    private String direccion;
     private LocalDate fechaNacimiento;
-
-    // Constructor
+    private String direccion;
 
     public Persona(String nombre, String direccion, LocalDate fechaNacimiento) {
         this.nombre = nombre;
@@ -16,9 +13,8 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    //Metodos
-    public void actualizarDireccion(String nuevaDireccion) {
-        this.direccion = nuevaDireccion;
+    public void actualizarDireccion(String nuevaDir) {
+        this.direccion = nuevaDir;
     }
 
     public int obtenerEdad() {
@@ -31,12 +27,10 @@ public class Persona {
     }
 
     @Override
-    public String toString(){
-        return "Persona: " + nombre + ". Edad: " + obtenerEdad();
+    public String toString() {
+        return "Persona{nombre='" + nombre + "', edad=" + obtenerEdad() + ", direccion='" + direccion + "'}";
     }
 
-
-    // --- GETTERS & SETTERS ---
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
 

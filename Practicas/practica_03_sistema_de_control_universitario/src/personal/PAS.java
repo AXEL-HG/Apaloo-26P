@@ -7,43 +7,74 @@ public class PAS extends Trabajador {
     private String area;
     private int nivel;
     private String turno;
-    
-    public PAS(String nombre, String direccion, LocalDate fechaNacimiento, String puesto, double salario, LocalDate fechaIngreso, String area, int nivel, String turno) {
+
+    private Trabajador[] personalGeneral;
+    private int totalPersonal;
+
+    public PAS(String nombre, String direccion, LocalDate fechaNacimiento, String puesto, double salario,
+               LocalDate fechaIngreso, String area, int nivel, String turno) {
         super(nombre, direccion, fechaNacimiento, puesto, salario, fechaIngreso);
         this.area = area;
         this.nivel = nivel;
         this.turno = turno;
+        this.personalGeneral = new Trabajador[50];
+        this.totalPersonal = 0;
     }
 
-    //Metodos
-
-    public void administrarRecursos(List<PAS> listaPersonal) {
-        System.out.println("Personal que pertenece al área de " + this.area + ":");
-        for (PAS empleado : listaPersonal) {
-            if (empleado.getArea().equals(this.area)) {
-                System.out.println("- " + empleado.getNombre());
+    public void administrarRecursos() {
+        System.out.println("Personal que pertenece al área '" + this.area + "':");
+        boolean hayAlguien = false;
+        for (int i = 0; i < totalPersonal; i++) {
+            if (personalGeneral[i] instanceof PAS) {
+                PAS p = (PAS) personalGeneral[i];
+                if (p.getArea().equals(this.area)) {
+                    System.out.println("  - " + p.getNombre());
+                    hayAlguien = true;
+                }
             }
         }
+        if (!hayAlguien) System.out.println("  (Sin personal registrado en esta área)");
     }
 
-    public void generarReporte(List<Trabajador> listaTodoElPersonal) {
+    /**
+     * Muestra un listado de todo el personal registrado.
+     */
+    public void generarReporte() {
         System.out.println("=== REPORTE GENERAL DE PERSONAL ===");
-        for (Trabajador t : listaTodoElPersonal) {
-            System.out.println("Nombre: " + t.getNombre() + " | Puesto: " + t.getPuesto() + " | Salario: $" + t.getSalario());
+        if (totalPersonal == 0) { System.out.println("Sin personal registrado."); return; }
+        for (int i = 0; i < totalPersonal; i++) {
+            Trabajador t = personalGeneral[i];
+            System.out.println("  Nombre: " + t.getNombre() + " | Puesto: " + t.getPuesto() + " | Salario: $" + t.getSalario());
         }
     }
 
-    //Getters y setters
+    public void agregarPersonal(Trabajador t) {
+        if (totalPersonal < personalGeneral.length) {
+            personalGeneral[totalPersonal++] = t;
+        }
+    }
 
-    public String getArea() { return area;}
-    public void setArea(String area) { this.area = area;}
+    @Override
+    public String toString() {
+        return "PAS{nombre='" + getNombre() + "', area='" + area + "', nivel=" + nivel + ", turno='" + turno + "'}";
+    }
+
+    public String getArea() { return area; }
+    public void setArea(String area) { this.area = area; }
 
     public int getNivel() { return nivel; }
-    public void setNivel(int nivel) { this.nivel = nivel;}
+    public void setNivel(int nivel) { this.nivel = nivel; }
 
     public String getTurno() { return turno; }
-    public void setTurno(String turno) {this.turno = turno;}
+    public void setTurno(String turno) { this.turno = turno; }
 
-    
+    public void administrarRecursos(List<Trabajador> asList) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'administrarRecursos'");
+    }
 
+    public void administrarRecursos(PAS[] listaPas, int i) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'administrarRecursos'");
+    }
 }

@@ -1,35 +1,50 @@
 package personal;
-
 public class Doctor {
 
+    private String especialidad;
     private String universidad;
-    private String codigo;
     private int anioObtencion;
 
-    public Doctor(String universidad, String codigo, int anioObtencion) {
+    public Doctor(String especialidad, String universidad, int anioObtencion) {
+        this.especialidad = especialidad;
         this.universidad = universidad;
-        this.codigo = codigo;
         this.anioObtencion = anioObtencion;
     }
 
-    //metods
 
     public boolean validarTitulo() {
-        return true;
+        boolean valido = universidad != null && !universidad.isBlank() && anioObtencion > 1900;
+        if (valido) {
+            System.out.println("El título de doctor en '" + especialidad + "' obtenido en " +
+                               universidad + " (" + anioObtencion + ") es válido.");
+        } else {
+            System.out.println("Los datos del título doctoral no son válidos.");
+        }
+        return valido;
     }
+
 
     public void registrarTitulo() {
-        System.out.println("El titulo ha sido registrado");
+        if (validarTitulo()) {
+            System.out.println("Título doctoral registrado: " + especialidad +
+                               " — " + universidad + " (" + anioObtencion + ")");
+        } else {
+            System.out.println("No se puede registrar: los datos del título son inválidos.");
+        }
     }
 
-    //getters and setters
-    public String getUniversidad() { return universidad;}
-    public void setUniversidad(String universidad) { this.universidad = universidad;} 
+    @Override
+    public String toString() {
+        return "Doctor{especialidad='" + especialidad + "', universidad='" + universidad +
+               "', anioObtencion=" + anioObtencion + "}";
+    }
 
-    public String getCodigo() { return codigo; }
-    public void setCodigo(String codigo) {this.codigo = codigo; }
+    public String getEspecialidad() { return especialidad; }
+    public void setEspecialidad(String especialidad) { this.especialidad = especialidad; }
 
-    public int getaAnioObtencion() {return anioObtencion;}
-    public void setAnioObtencion(int anioObtencion) {this.anioObtencion = anioObtencion;}
+    public String getUniversidad() { return universidad; }
+    public void setUniversidad(String universidad) { this.universidad = universidad; }
 
+    public int getAnioObtencion() { return anioObtencion; }
+    public void setAnioObtencion(int anioObtencion) { this.anioObtencion = anioObtencion; }
 }

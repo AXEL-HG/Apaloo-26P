@@ -6,45 +6,40 @@ public class PDI extends Trabajador {
     private String categoria;
     private String especialidad;
     private int horasDocencia;
-    private Doctor doctor;
 
     public PDI(String nombre, String direccion, LocalDate fechaNacimiento, String puesto, double salario,
-            LocalDate fechaIngreso, String categoria, String especialidad, int horasDocencia) {
+               LocalDate fechaIngreso, String categoria, String especialidad, int horasDocencia) {
         super(nombre, direccion, fechaNacimiento, puesto, salario, fechaIngreso);
-
         this.categoria = categoria;
         this.especialidad = especialidad;
         this.horasDocencia = horasDocencia;
-        this.doctor = null;
-
     }
-    
-    //metodos
 
     public void investigar(String tema) {
-        System.out.println("El profesor: " + getNombre() + " Esta investigando sobre el tema: " + tema);
+        System.out.println("El profesor " + getNombre() + " está realizando una investigación sobre: " + tema);
     }
 
     public void impartirClase() {
-        System.out.println("El profesor: " + getNombre() + " Impartio una clase, tiene: " + getHorasDocencia() + " asignadas");
+        System.out.println("El profesor " + getNombre() + " impartió una clase. Horas de docencia asignadas: " + horasDocencia);
     }
-
-    //getters y setters
-    public String getEspecialidad() {return especialidad;}
-    public void setEspecialidad(String especialidad) {this.especialidad = especialidad;}
-    
-    public String getCategoria() { return categoria; }
-    public void setCategoria(String categoria) { this.categoria = categoria; }
-
-    public int getHorasDocencia() {return horasDocencia;}
-    public void setHorasDocencia(int horasDocencia) {this.horasDocencia = horasDocencia; }
-
-    public Doctor getDoctor() { return doctor; }
-    public void setDoctor(Doctor doctor) { this.doctor = doctor; }
 
     @Override
     public String toString() {
-        return super.toString() + " | PDI [categoria=" + categoria + ", especialidad=" + especialidad + ", horasDocencia=" + horasDocencia + ", doctor=" + (doctor != null ? doctor.toString() : "Ninguno") + "]";
+        return "PDI{nombre='" + getNombre() + "', categoria='" + categoria +
+               "', especialidad='" + especialidad + "', horasDocencia=" + horasDocencia + "}";
     }
 
+    public String getCategoria() { return categoria; }
+    public void setCategoria(String categoria) { this.categoria = categoria; }
+
+    public String getEspecialidad() { return especialidad; }
+    public void setEspecialidad(String especialidad) { this.especialidad = especialidad; }
+
+    public int getHorasDocencia() { return horasDocencia; }
+    public void setHorasDocencia(int horasDocencia) { this.horasDocencia = horasDocencia; }
+
+    public void setDoctor(Doctor tituloDoctor) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setDoctor'");
+    }
 }
