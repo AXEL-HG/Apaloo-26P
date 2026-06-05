@@ -6,6 +6,7 @@ public class PDI extends Trabajador {
     private String categoria;
     private String especialidad;
     private int horasDocencia;
+    private Doctor doctor;
 
     public PDI(String nombre, String direccion, LocalDate fechaNacimiento, String puesto, double salario,
             LocalDate fechaIngreso, String categoria, String especialidad, int horasDocencia) {
@@ -14,6 +15,7 @@ public class PDI extends Trabajador {
         this.categoria = categoria;
         this.especialidad = especialidad;
         this.horasDocencia = horasDocencia;
+        this.doctor = null;
 
     }
     
@@ -36,5 +38,13 @@ public class PDI extends Trabajador {
 
     public int getHorasDocencia() {return horasDocencia;}
     public void setHorasDocencia(int horasDocencia) {this.horasDocencia = horasDocencia; }
+
+    public Doctor getDoctor() { return doctor; }
+    public void setDoctor(Doctor doctor) { this.doctor = doctor; }
+
+    @Override
+    public String toString() {
+        return super.toString() + " | PDI [categoria=" + categoria + ", especialidad=" + especialidad + ", horasDocencia=" + horasDocencia + ", doctor=" + (doctor != null ? doctor.toString() : "Ninguno") + "]";
+    }
 
 }
