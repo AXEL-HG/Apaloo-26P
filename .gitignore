@@ -1,6 +1,9 @@
 # Compiled class file
 *.class
 
+# File dev firebaseStudio
+*.nix
+
 # Log file
 *.log
 
