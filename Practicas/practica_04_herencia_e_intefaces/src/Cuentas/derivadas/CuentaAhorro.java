@@ -4,27 +4,22 @@ import Practicas.practica_04_herencia_e_intefaces.src.Cuentas.CuentaBancaria;
 public class CuentaAhorro extends CuentaBancaria{
 
     //atributos
-    private double comision;
+    private double montoLimite;
 
     //constructor
-    public CuentaAhorro(double saldo, String numeroCuenta, double comision) {
+    public CuentaAhorro(double saldo, String numeroCuenta, double montoLimite) {
         super(saldo, numeroCuenta);
-        this.comision = comision;
+        this.montoLimite = montoLimite;
     }
 
     //metodos
 
-    public void girarCheque() {
-
-    }
-
-    public void cobrarComision() {
-        double monto = getSaldo() * comision;
-        retirar(monto);
+    public double calcularIntereses(){
+        return getSaldo()*0.05;
     }
 
     //getters and setters
-    public double getComision() {return comision;}
-    public void setComision(double comision) {this.comision = comision;}
+    public double getMontoLimite() {return montoLimite;}
+    public void setMontoLimite(double montoLimite) {this.montoLimite = montoLimite;}
 
 }
