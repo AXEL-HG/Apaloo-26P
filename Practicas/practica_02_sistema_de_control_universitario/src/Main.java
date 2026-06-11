@@ -6,10 +6,12 @@ import java.time.LocalDate;
 import personal.Doctor;
 import personal.PAS;
 import personal.PDI;
+import Practicas.practica_04_herencia_e_intefaces.src.Cuentas.derivadas.CuentaCorriente;
+import Practicas.practica_04_herencia_e_intefaces.src.Cuentas.derivadas.CuentaAhorro;
 
 public class Main {
     public static void main(String[] args) {
-        Universidad miUniversidad = new Universidad("Universidad Autónoma", "Ciudad de México", 1995, 0, 0, 0);
+        Universidad miUniversidad = new Universidad("Universidad Autónoma", "Ciudad de México", 1995, 10, 10, 10);
 
         Departamento deptoSistemas = new Departamento("Sistemas Computacionales", "ISC01", "Edificio B", 5);
         miUniversidad.registrarDepartamento(deptoSistemas);
@@ -36,7 +38,7 @@ public class Main {
         System.out.println("¿Profr. Asael es Adulto Mayor?: " + profrAsael.esAdultoMayor());
         System.out.println("Edad de Carlos: " + personalAdmin.obtenerEdad() + " años");
         System.out.println("Antigüedad de Carlos: " + personalAdmin.calcularAntiguedad() + " años");
-         personalAdmin.solicitarVacaciones();
+        personalAdmin.solicitarVacaciones();
 
         profrAsael.investigar("Redes Neuronales Convolucionales");
         profrAsael.impartirClase();
@@ -59,10 +61,37 @@ public class Main {
 
         deptoSistemas.listarPersonal();
 
+
+        System.out.println("\n========= PROBANDO CONEXIÓN DE CUENTAS BANCARIAS =========");
+
+        // 1. Vinculamos una CuentaCorriente al Profesor Asael (Trabajador)
+        CuentaCorriente cuentaAsael = new CuentaCorriente(15000.0, "CC-UAM-001", 0.02);
+        profrAsael.setCuentaCorriente(cuentaAsael);
+        
+        System.out.println("Cuenta Corriente vinculada al profesor " + profrAsael.getNombre() + ":");
+        System.out.println("  -> No. Cuenta: " + profrAsael.getCuentaCorriente().getNumeroCuenta());
+        
+        // Ejecutamos el cobro de comisión
+        profrAsael.getCuentaCorriente().cobrarComision();
+        System.out.println("  -> Saldo después de cobrar comisión: $" + profrAsael.getCuentaCorriente().getNumeroCuenta());
+
+
+        // 2. Vinculamos una CuentaAhorro a la Alumna Sofía (Estudiante)
+        CuentaAhorro cuentaSofia = new CuentaAhorro(2500.0, "CA-UAM-999", 50000.0);
+        alumnoGrado.setCuentaAhorro(cuentaSofia);
+
+        System.out.println("\nCuenta de Ahorro vinculada a la estudiante " + alumnoGrado.getNombre() + ":");
+        System.out.println("  -> No. Cuenta: " + alumnoGrado.getCuentaAhorro().getNumeroCuenta());
+        
+        // Ejecutamos el cálculo de intereses
+        double intereses = alumnoGrado.getCuentaAhorro().calcularIntereses();
+        System.out.println("  -> Intereses calculados sobre saldo: $" + intereses);
+
+
         System.out.println("\n========= INFORMACIÓN GENERAL DE CONTROL =========");
         System.out.println(miUniversidad);
         System.out.println(deptoSistemas);
-        System.out.println(profrAsael);
+        System.out.println(profrAsael); 
         System.out.println(alumnoGrado);
     }
 }
