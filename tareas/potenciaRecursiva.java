@@ -10,7 +10,7 @@ public class potenciaRecursiva {
         if (exponente == 0) {
             return 1;
         }
-
+//
         return base * calcularPotencia(base, exponente - 1);
     }
 
