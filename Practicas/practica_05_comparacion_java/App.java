@@ -6,41 +6,23 @@ public class App {
 
         String nombre1 = "Ana";
         String nombre2 = "Ana";
-
+        
         if (nombre1.equals(nombre2)) {
             System.out.println("Los nombres son iguales");
         }
-
+        
         String nombre3 = null;
-
+        
         if (nombre3.equals("Ana")) {
             System.out.println("Es Ana");
         }
-
+        
         if ("Ana".equals(nombre1)) {
             System.out.println("El nombre es Ana");
         }
+        Persona p1 = new Persona("Juan");
+        Persona p2 = new Persona("Juan");
+        System.out.println(p1.equals(p2));
     }
 
-        public class Persona {
-
-            String nombre;
-        
-            public Persona(String nombre) {
-                this.nombre = nombre;
-            }
-            @Override 
-            public boolean equals(Object obj) {
-        
-                if(obj == null) {
-                    return false;
-                }        
-                if(!(obj instanceof Persona)) {
-                    Persona otra = (Persona) obj;
-                    return this.nombre.equals(otra.nombre);
-            }
-                return false;
-
-        }
-    }
 }
