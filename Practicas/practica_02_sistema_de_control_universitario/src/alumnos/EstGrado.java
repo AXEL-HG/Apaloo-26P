@@ -17,12 +17,9 @@ public class EstGrado extends Estudiante {
 
     public void realizarProyecto() {
         System.out.println("El estudiante " + getNombre() + " está desarrollando / ha concluido " +
-                           "satisfactoriamente su proyecto de titulación modalidad: " + titulacion);
+                        "satisfactoriamente su proyecto de titulación modalidad: " + titulacion);
     }
 
-    /**
-     * Verifica requisitos e indica exactamente qué falta si no se cumplen.
-     */
     public void solicitarTitulacion() {
         boolean tieneServicio = getServicioSocial();
         boolean tieneCreditios = getCreditos() >= 300;
@@ -39,7 +36,7 @@ public class EstGrado extends Estudiante {
     @Override
     public String toString() {
         return "EstGrado{nombre='" + getNombre() + "', titulacion='" + titulacion +
-               "', creditos=" + creditos + ", servicioSocial=" + servicioSocial + "}";
+            "', creditos=" + creditos + ", servicioSocial=" + servicioSocial + "}";
     }
 
     public String getTitulacion() { return titulacion; }

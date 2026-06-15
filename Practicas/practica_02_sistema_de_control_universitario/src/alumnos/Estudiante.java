@@ -1,8 +1,6 @@
 package alumnos;
 import java.time.LocalDate;
 import core.Persona;
-
-// Conexión con el paquete de la práctica 4
 import Practicas.practica_04_herencia_e_intefaces.src.Cuentas.derivadas.CuentaAhorro;
 
 public class Estudiante extends Persona {
@@ -12,8 +10,6 @@ public class Estudiante extends Persona {
     private String matricula;
     private double promedio;
     private LocalDate fechaIngreso;
-    
-    // Nuevo Atributo: Asociación con CuentaAhorro
     private CuentaAhorro cuentaAhorro;
 
     public Estudiante(String nombre, String direccion, LocalDate fechaNacimiento, String matricula, double promedio, LocalDate fechaIngreso) {
@@ -22,7 +18,7 @@ public class Estudiante extends Persona {
         this.fechaIngreso = fechaIngreso;
         this.promedio = promedio;
         this.matricula = matricula;
-        this.cuentaAhorro = null; // Inicializada como nula por defecto
+        this.cuentaAhorro = null; 
     
     }
 
@@ -45,7 +41,6 @@ public class Estudiante extends Persona {
     }
 
     //getters y setters
-
     public CuentaAhorro getCuentaAhorro() { return cuentaAhorro; }
     public void setCuentaAhorro(CuentaAhorro cuentaAhorro) { this.cuentaAhorro = cuentaAhorro; }
 

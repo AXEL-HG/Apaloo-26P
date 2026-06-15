@@ -14,7 +14,7 @@ public class Trabajador extends Persona {
     private CuentaCorriente cuentaCorriente;
 
     public Trabajador(String nombre, String direccion, LocalDate fechaNacimiento,
-                      String puesto, double salario, LocalDate fechaIngreso) {
+                    String puesto, double salario, LocalDate fechaIngreso) {
         super(nombre, direccion, fechaNacimiento);
         this.puesto = puesto;
         this.salario = salario;

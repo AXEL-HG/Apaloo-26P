@@ -12,7 +12,7 @@ public class PAS extends Trabajador {
     private int totalPersonal;
 
     public PAS(String nombre, String direccion, LocalDate fechaNacimiento, String puesto, double salario,
-               LocalDate fechaIngreso, String area, int nivel, String turno) {
+            LocalDate fechaIngreso, String area, int nivel, String turno) {
         super(nombre, direccion, fechaNacimiento, puesto, salario, fechaIngreso);
         this.area = area;
         this.nivel = nivel;
