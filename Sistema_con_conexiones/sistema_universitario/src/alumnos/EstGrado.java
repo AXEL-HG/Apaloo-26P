@@ -43,7 +43,10 @@ public class EstGrado extends Estudiante{
 
     //? toString
 
-    
+    @Override
+    public String toString() {
+        return "EstGrado{ Titulacion " + getTitulacion() + " Creditos: " + getCreditos() + " Servicio Social: " + getServicioSocial() + super.toString() + "}";
+    }
 
 
     //?getters y setters

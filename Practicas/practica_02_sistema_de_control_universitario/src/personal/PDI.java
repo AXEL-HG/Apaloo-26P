@@ -9,7 +9,7 @@ public class PDI extends Trabajador {
     private Doctor doctor;
 
     public PDI(String nombre, String direccion, LocalDate fechaNacimiento, String puesto, double salario,
-               LocalDate fechaIngreso, String categoria, String especialidad, int horasDocencia) {
+            LocalDate fechaIngreso, String categoria, String especialidad, int horasDocencia) {
         super(nombre, direccion, fechaNacimiento, puesto, salario, fechaIngreso);
         this.categoria = categoria;
         this.especialidad = especialidad;
@@ -27,7 +27,7 @@ public class PDI extends Trabajador {
     @Override
     public String toString() {
         return "PDI{nombre='" + getNombre() + "', categoria='" + categoria +
-               "', especialidad='" + especialidad + "', horasDocencia=" + horasDocencia + "}";
+            "', especialidad='" + especialidad + "', horasDocencia=" + horasDocencia + "}";
     }
 
     public String getCategoria() { return categoria; }

@@ -17,7 +17,6 @@ public class EstDoctorado extends Estudiante{
     }
 
     //?Metodos
-
     public void publicarArticulo() {
 
         System.out.println("El estudiante: " + getNombre() + "ha publicado el tema de un articulo: " + getTemaTesis() + " del programa: " + getPrograma());
@@ -26,6 +25,12 @@ public class EstDoctorado extends Estudiante{
 
     public void realizarTesis() {
         System.out.println("El estudiante: " + getNombre() + " esta realizando su tesis con el tema: " + getTemaTesis() + " Con el director asignado: " + getDirectorTesis());
+    }
+
+    //?To string
+    @Override
+    public String toString() {
+        return "EstDoctorado{ Direrector Tesis: " + getDirectorTesis() + " Programa: " + getPrograma() + " Tema Tesis: " + getTemaTesis() + super.toString() + " } ";
     }
 
     //?Getters y setters
