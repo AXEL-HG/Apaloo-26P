@@ -22,17 +22,18 @@ public class PAS extends Trabajador{
 
     
     public void administrarRecursos() {
-        System.out.println("El trabajador: " + getNombre() + " perteneces al area: " + getArea());
+        System.out.println("El trabajador: " + getNombre() + " esta administrando los recursos del area : " + getArea());
     }
 
     public void generarReporte() {
-
+        System.out.println("Generando reporte general del personal...");
+        System.out.println("Reporte solicitado por: " + getNombre() + " (Nivel " + this.nivel + ", Turno " + this.turno + ")");
     }
 
     //?To String
     @Override
     public String toString() {
-        return "PDI{Area: " + getArea() + " Nivel: " + getNivel() + " Turno: " + getTurno() + super.toString() + "}";
+        return "PAS{Area: " + getArea() + " Nivel: " + getNivel() + " Turno: " + getTurno() + super.toString() + "}";
     }
 
     //? Getters y settes

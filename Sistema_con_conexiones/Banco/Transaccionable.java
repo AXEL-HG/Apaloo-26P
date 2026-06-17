@@ -1,9 +1,8 @@
-package Practicas.practica_04_herencia_e_intefaces.src.Interfaz;
+package Sistema_con_conexiones.Banco;
 
 public interface Transaccionable {
-
+    
     public void depositar(double monto);
-
     public void retirar(double monto);
-
+    
 }

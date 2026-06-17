@@ -22,7 +22,7 @@ public class PDI extends Trabajador {
     //?to String
     @Override
     public String toString() {
-        return "PAS{Especialidad: " + getEspecilidad() + "Categoria:" + getCategoria() + " Horas de docencia: " + getHorasDocencia() + super.toString() +"}";
+        return "PDI{Especialidad: " + getEspecilidad() + "Categoria:" + getCategoria() + " Horas de docencia: " + getHorasDocencia() + super.toString() +"}";
     }
     
     //?Getters y setters
