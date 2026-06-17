@@ -1,7 +1,7 @@
 package Sistema_con_conexiones.sistema_universitario.src.alumnos;
 import java.time.LocalDate;
 
-import core.Persona;
+import Sistema_con_conexiones.sistema_universitario.src.core.Persona;
 
 public class Estudiante extends Persona{
 
@@ -23,8 +23,8 @@ public class Estudiante extends Persona{
     }
 
     public double calcularBeca() {
-        if (getPromedio() <= 9.0) {return 3000;}
-        else if (getPromedio() <= 8) { return 2000;} 
+        if (getPromedio() >= 9.0) {return 3000;}
+        else if (getPromedio() >= 8) { return 2000;} 
         else { return 1000; }
     }
 

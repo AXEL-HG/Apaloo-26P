@@ -29,12 +29,13 @@ public class Universidad {
 
     public void registrarEstudiante(Estudiante estudiante) {
         for (int i = 0; i < estudiantes.length; i++) {
-            if (estudiantes[i] != null) {
-                System.out.println("El estudiante: " + estudiante.getNombre() + "a sido registrado EXITOSAMENTE");
+            if (estudiantes[i] == null) {
+                estudiantes[i] = estudiante;
+                System.out.println("El estudiante: " + estudiante.getNombre() + " a sido registrado EXITOSAMENTE");
                 return;
             }
         }
-        System.out.println("Error: El estuidante: " + estudiante.getNombre() + " no ha sido registrado debido a que el cupo a alcanzado su maximo");
+        System.out.println("Error: El estudiante: " + estudiante.getNombre() + " no ha sido registrado debido a que el cupo ha alcanzado su máximo");
     }
 
     public void contratarTrabajador(Trabajador trabajador) {

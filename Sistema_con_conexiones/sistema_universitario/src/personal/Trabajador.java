@@ -1,8 +1,7 @@
 package Sistema_con_conexiones.sistema_universitario.src.personal;
 import java.time.LocalDate;
 import java.time.Period;
-
-import core.Persona;
+import Sistema_con_conexiones.sistema_universitario.src.core.Persona;
 
 public class Trabajador extends Persona{
 
@@ -33,7 +32,6 @@ public class Trabajador extends Persona{
     }
 
     //?to String
-    @Override
     public String toString() {
         return "Trabajador{Puesto: " + getPuesto() + " Salario: " + getSalario() + " Fecha de ingreso: " + getFechaIngreso() + super.toString() + "}";
     }
