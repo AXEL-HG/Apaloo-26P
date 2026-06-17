@@ -1,4 +1,5 @@
 package Sistema_con_conexiones.sistema_universitario.src.core;
+import java.time.Clock;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -24,7 +25,7 @@ public class Persona {
 
     public int obtenerEdad(){
         if (this.fechaNacimiento == null) return 0;
-        return Period.between(this.fechaNacimiento, LocalDate.now()).getYears();
+        return Period.between(this.fechaNacimiento, LocalDate.now(Clock.systemUTC())).getYears();
     }
 
     //to String

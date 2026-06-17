@@ -1,4 +1,5 @@
 package Sistema_con_conexiones.sistema_universitario.src.personal;
+import java.time.Clock;
 import java.time.LocalDate;
 
 public class Doctor {
@@ -20,7 +21,7 @@ public class Doctor {
 
     public boolean validarTitulo() {
 
-        int anioActual = LocalDate.now().getYear();
+        int anioActual = LocalDate.now(Clock.systemUTC()).getYear();
 
         if (this.anioObtencion <= anioActual && this.universidad != null && !this.universidad.isEmpty()) {
             System.out.println("Validación en proceso... El título expedido por " + this.universidad + " es auténtico.");

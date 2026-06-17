@@ -1,6 +1,6 @@
 package Sistema_con_conexiones.sistema_universitario.src.academia;
 
-import personal.PDI;
+import Sistema_con_conexiones.sistema_universitario.src.personal.PDI;
 
 public class Departamento {
     
