@@ -32,6 +32,12 @@ public class Trabajador extends Persona{
         System.out.println("El trabajador: " + getNombre() + " ha solicitado vacaciones");
     }
 
+    //?to String
+    @Override
+    public String toString() {
+        return "Trabajador{Puesto: " + getPuesto() + " Salario: " + getSalario() + " Fecha de ingreso: " + getFechaIngreso() + super.toString() + "}";
+    }
+
     //?Getters y setters -----------------
     public LocalDate getFechaIngreso() {
         return fechaIngreso;

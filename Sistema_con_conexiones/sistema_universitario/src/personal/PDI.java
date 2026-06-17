@@ -1,56 +1,52 @@
 package Sistema_con_conexiones.sistema_universitario.src.personal;
-
 import java.time.LocalDate;
 
-public class PDI extends Trabajador{
+public class PDI extends Trabajador {
 
     //?Atributos
-    private String area;
-    private int nivel;
-    private String turno;
+    private int horasDocencia;
+    private String categoria;
+    private String especilidad;
 
+    
     //?Constructor
     public PDI(String nombre, String direccion, LocalDate fechaNacimiento, Double salario, String puesto,
-        LocalDate fechaIngreso, String area, int nivel, String turno) {
-            super(nombre, direccion, fechaNacimiento, salario, puesto, fechaIngreso);
-            this.area = area;
-            this.nivel = nivel;
-            this.turno = turno;
-        }
-
-
-    //?Metodos
-    public void administrarRecursos() {
-        System.out.println("El trabajador: " + getNombre() + " perteneces al area: " + getArea());
+            LocalDate fechaIngreso, String categoria, String especialidad, int horasDocencia) {
+        super(nombre, direccion, fechaNacimiento, salario, puesto, fechaIngreso);
+        
+        this.categoria = categoria;
+        this.especilidad = especialidad;
+        this.horasDocencia = horasDocencia;
     }
 
-    public void generarReporte() {
-
-    }
-
-    //? Getters y settes
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
-    public String getTurno() {
-        return turno;
-    }
-
-    public void setTurno(String turno) {
-        this.turno = turno;
+    //?to String
+    @Override
+    public String toString() {
+        return "PAS{Especialidad: " + getEspecilidad() + "Categoria:" + getCategoria() + " Horas de docencia: " + getHorasDocencia() + super.toString() +"}";
     }
     
+    //?Getters y setters
+    public String getCategoria() {
+        return categoria;
+    }
+    
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    
+    public String getEspecilidad() {
+        return especilidad;
+    }
+    
+    public void setEspecilidad(String especilidad) {
+        this.especilidad = especilidad;
+    }
+    
+    public int getHorasDocencia() {
+        return horasDocencia;
+    }
+    
+    public void setHorasDocencia(int horasDocencia) {
+        this.horasDocencia = horasDocencia;
+    }
 }

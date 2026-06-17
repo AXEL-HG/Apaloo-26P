@@ -1,62 +1,63 @@
 package Sistema_con_conexiones.sistema_universitario.src.personal;
+
 import java.time.LocalDate;
 
-public class PAS extends Trabajador {
+public class PAS extends Trabajador{
 
     //?Atributos
-    private int horasDocencia;
-    private String categoria;
-    private String especilidad;
+    private String area;
+    private int nivel;
+    private String turno;
 
-    
     //?Constructor
     public PAS(String nombre, String direccion, LocalDate fechaNacimiento, Double salario, String puesto,
-            LocalDate fechaIngreso, String categoria, String especialidad, int horasDocencia) {
-        super(nombre, direccion, fechaNacimiento, salario, puesto, fechaIngreso);
-        
-        this.categoria = categoria;
-        this.especilidad = especialidad;
-        this.horasDocencia = horasDocencia;
-        
-    }
+        LocalDate fechaIngreso, String area, int nivel, String turno) {
+            super(nombre, direccion, fechaNacimiento, salario, puesto, fechaIngreso);
+            this.area = area;
+            this.nivel = nivel;
+            this.turno = turno;
+        }
 
     //?Metodos
-    public void investigarTema(String tema) {
-        System.out.println("El profesor : " + getNombre() + " esta realizando una investigacion sobre el tema:" + tema);
+
+    
+    public void administrarRecursos() {
+        System.out.println("El trabajador: " + getNombre() + " perteneces al area: " + getArea());
     }
 
-    public void impartirTema() {
-        System.out.println("El profesor: " + getNombre() + " esta impartiendo una clase con las horas asignadas: " + getHorasDocencia());
+    public void generarReporte() {
+
     }
 
-    //?to String
+    //?To String
     @Override
     public String toString() {
-        return "PAS{Especialidad: " + getEspecilidad() + "Categoria:" + getCategoria() + " Horas de docencia: " + getHorasDocencia() + super.toString() +"}";
+        return "PDI{Area: " + getArea() + " Nivel: " + getNivel() + " Turno: " + getTurno() + super.toString() + "}";
+    }
+
+    //? Getters y settes
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
     }
     
-    //?Getters y setters
-    public String getCategoria() {
-        return categoria;
-    }
-    
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-    
-    public String getEspecilidad() {
-        return especilidad;
-    }
-    
-    public void setEspecilidad(String especilidad) {
-        this.especilidad = especilidad;
-    }
-    
-    public int getHorasDocencia() {
-        return horasDocencia;
-    }
-    
-    public void setHorasDocencia(int horasDocencia) {
-        this.horasDocencia = horasDocencia;
-    }
 }
