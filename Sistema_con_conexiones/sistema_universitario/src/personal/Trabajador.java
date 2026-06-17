@@ -2,6 +2,7 @@ package Sistema_con_conexiones.sistema_universitario.src.personal;
 import java.time.LocalDate;
 import java.time.Period;
 import Sistema_con_conexiones.sistema_universitario.src.core.Persona;
+import Sistema_con_conexiones.Banco.CuentaCorriente;
 
 public class Trabajador extends Persona{
 
@@ -9,6 +10,8 @@ public class Trabajador extends Persona{
     private LocalDate fechaIngreso;
     private String puesto;
     private Double salario;
+    private CuentaCorriente CuentaBancaria;
+    
     
     //?Constructor ------------------------------
     public Trabajador(String nombre, String direccion, LocalDate fechaNacimiento, Double salario, String puesto, LocalDate fechaIngreso) {
@@ -61,4 +64,11 @@ public class Trabajador extends Persona{
         this.puesto = puesto;
     }
 
+    public CuentaCorriente getCuentaBancaria() {
+        return CuentaBancaria;
+    }
+    
+    public void setCuentaBancaria(CuentaCorriente cuentaBancaria) {
+        CuentaBancaria = cuentaBancaria;
+    }
 }

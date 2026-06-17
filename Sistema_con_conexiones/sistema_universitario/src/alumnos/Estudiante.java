@@ -1,13 +1,15 @@
 package Sistema_con_conexiones.sistema_universitario.src.alumnos;
 import java.time.LocalDate;
-
 import Sistema_con_conexiones.sistema_universitario.src.core.Persona;
+import Sistema_con_conexiones.Banco.CuentaAhorro;
 
 public class Estudiante extends Persona{
 
     private String matricula;
     private double promedio;
     private LocalDate fechaIngreso;
+    private CuentaAhorro cuentaBancaria;
+    
     
     //?Constructor
     public Estudiante(String matricula, double promedio, LocalDate fechaIngreso, String nombre, String direccion, LocalDate fechaNacimiento) {
@@ -57,5 +59,13 @@ public class Estudiante extends Persona{
     
     public void setMatricula(String matricula) {
         this.matricula = matricula;
+    }
+    
+    public CuentaAhorro getCuentaBancaria() {
+        return cuentaBancaria;
+    }
+    
+    public void setCuentaBancaria(CuentaAhorro cuentaBancaria) {
+        this.cuentaBancaria = cuentaBancaria;
     }
 }
