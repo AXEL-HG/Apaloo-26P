@@ -42,6 +42,16 @@ public class Departamento {
         }
     }
 
+    public int buscarProfesor(String nombre) {
+        return busquedaRecursivaProfesor(nombre, 0);
+    }
+
+    private int busquedaRecursivaProfesor(String nombre, int indice) {
+        if (indice >= profesores.length) return -1;
+        if (profesores[indice] != null && profesores[indice].getNombre().equalsIgnoreCase(nombre)) return indice;
+        return busquedaRecursivaProfesor(nombre, indice + 1);
+    }
+
     //? To String
     @Override
     public String toString() {
