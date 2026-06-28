@@ -48,6 +48,27 @@ public class Universidad {
         }
         System.out.println("Error: El trabajador " + trabajador.getNombre() + " no pudo ser contratado, cupo máximo alcanzado.");
     }
+
+    public int buscarEstudiante(String nombre) {
+        return busquedaRecursivaEstudiante(nombre, 0);
+    }
+
+    private int busquedaRecursivaEstudiante(String nombre, int indice) {
+        if (indice >= estudiantes.length) return -1;
+        if (estudiantes[indice] != null && estudiantes[indice].getNombre().equalsIgnoreCase(nombre)) return indice;
+        return busquedaRecursivaEstudiante(nombre, indice + 1);
+    }
+
+    public int buscarTrabajador(String nombre) {
+        return busquedaRecursivaTrabajador(nombre, 0);
+    }
+
+    private int busquedaRecursivaTrabajador(String nombre, int indice) {
+        if (indice >= trabajadores.length) return -1;
+        if (trabajadores[indice] != null && trabajadores[indice].getNombre().equalsIgnoreCase(nombre)) return indice;
+        return busquedaRecursivaTrabajador(nombre, indice + 1);
+    }
+
     //?to String
     @Override
     public String toString() {
