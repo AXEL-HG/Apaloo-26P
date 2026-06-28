@@ -60,5 +60,17 @@ public class Main {
         System.out.println(axdeti.toString());
         System.out.println(drSimi.toString());
         System.out.println(mikeMentzer.toString());
+
+        System.out.println("\n--- PRUEBA DE BÚSQUEDA RECURSIVA ---");
+        
+        int posGoku = uamIztapalapa.buscarEstudiante("Son Goku");
+        System.out.println("Goku se encuentra en la posición: " + posGoku + " del arreglo de estudiantes.");
+        
+        int posSimi = uamIztapalapa.buscarTrabajador("Dr. Simi");
+        System.out.println("El Dr. Simi se encuentra en la posición: " + posSimi + " del arreglo de trabajadores.");
+
+        int posFantasma = uamIztapalapa.buscarEstudiante("Alumno Que No Existe");
+        System.out.println("Buscando alumno fantasma... Resultado: " + posFantasma + " (No encontrado)");
+        
     }
 }

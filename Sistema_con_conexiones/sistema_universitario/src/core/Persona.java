@@ -10,10 +10,10 @@ public class Persona {
     private String nombre;
 
     //constructor
-    public Persona(String direccion, String nombre, LocalDate fechaNacimiento) {
+    public Persona(String nombre, String direccion, LocalDate fechaNacimiento) {
 
-        this.direccion = direccion;
         this.nombre = nombre;
+        this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
 
     }
