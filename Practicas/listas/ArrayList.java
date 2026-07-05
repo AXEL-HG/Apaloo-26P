@@ -235,33 +235,68 @@ public class ArrayList<E> implements Lista<E> {
     @Override
     public void agregarPosicion(E e, int posicion) {
 
+        if (posicion < 0 || posicion > indice) {
+            throw new IndexOutOfBoundsException("Posición inválida: " + posicion);
+        }
+
+        if (!(indice < datos.length - 1)) {
+            Object[] aux = new Object[datos.length + datos.length / 2];
+            System.arraycopy(datos, 0, aux, 0, datos.length);
+            asegurarGC();
+            datos = aux;
+        }
+
+        if (posicion < indice) {
+            System.arraycopy(datos, posicion, datos, posicion + 1, indice - posicion);
+        }
+
+        datos[posicion] = e;
+        
+        indice++;
+
     }
 
     @Override
     public E eliminarElemento() {
-
-
+        return eliminarElementoFinal();
     }
 
     @Override
     public E eliminarElementoInicio() {
-
-    
+        return eliminarElementoPosicion(0);
     }
 
     @Override
     public E eliminarElementoFinal() {
+        return eliminarElementoPosicion(indice - 1);
     }
 
     @Override
     public E eliminarElementoPosicion(int posicion) {
 
+        if (posicion < 0 || posicion >= indice) {
+            throw new IndexOutOfBoundsException("Posición inválida: " + posicion);
+        }
+
+        @SuppressWarnings("unchecked")
+        E elemento = (E) datos[posicion];
+
+        if (posicion < indice - 1) {
+            System.arraycopy(datos, posicion + 1, datos, posicion, indice - posicion - 1);
+        }
+
+        datos[indice - 1] = null;
+
+        indice--;
+
+        return elemento;
+
     }
 
-    @Override
-    public E[] convertirArreglo() {
+    //@Override
+    //public E[] convertirArreglo() {
 
-    }
+    //}
 
     @Override
     public E consultar(int posicion) {
@@ -275,4 +310,5 @@ public class ArrayList<E> implements Lista<E> {
         return elemento;
 
     }
+
 }
