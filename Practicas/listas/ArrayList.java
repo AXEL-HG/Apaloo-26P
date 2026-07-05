@@ -229,7 +229,7 @@ public class ArrayList<E> implements Lista<E> {
 
     @Override
     public void agregarElemento(E e) {
-
+        agregarFinal(e);
     }
 
     @Override
@@ -240,11 +240,13 @@ public class ArrayList<E> implements Lista<E> {
     @Override
     public E eliminarElemento() {
 
+
     }
 
     @Override
     public E eliminarElementoInicio() {
-l
+
+    
     }
 
     @Override
@@ -263,6 +265,14 @@ l
 
     @Override
     public E consultar(int posicion) {
+
+        if (posicion < 0 || posicion >= indice) {
+            throw new IndexOutOfBoundsException("Posición inválida: " + posicion);
+        }
+        @SuppressWarnings("unchecked")
+        E elemento = (E) datos[posicion];
+
+        return elemento;
 
     }
 }
