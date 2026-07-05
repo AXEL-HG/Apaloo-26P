@@ -293,10 +293,17 @@ public class ArrayList<E> implements Lista<E> {
 
     }
 
-    //@Override
-    //public E[] convertirArreglo() {
+    @Override
+    public E[] convertirArreglo() {
 
-    //}
+        @SuppressWarnings("unchecked")
+        E[] arreglo = (E[]) new Object[indice];
+
+        System.arraycopy(datos, 0, arreglo, 0, indice);
+
+        return arreglo;
+
+    }
 
     @Override
     public E consultar(int posicion) {
