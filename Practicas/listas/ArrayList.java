@@ -226,4 +226,43 @@ public class ArrayList<E> implements Lista<E> {
             }
         };
     }
+
+    @Override
+    public void agregarElemento(E e) {
+
+    }
+
+    @Override
+    public void agregarPosicion(E e, int posicion) {
+
+    }
+
+    @Override
+    public E eliminarElemento() {
+
+    }
+
+    @Override
+    public E eliminarElementoInicio() {
+l
+    }
+
+    @Override
+    public E eliminarElementoFinal() {
+    }
+
+    @Override
+    public E eliminarElementoPosicion(int posicion) {
+
+    }
+
+    @Override
+    public E[] convertirArreglo() {
+
+    }
+
+    @Override
+    public E consultar(int posicion) {
+
+    }
 }
