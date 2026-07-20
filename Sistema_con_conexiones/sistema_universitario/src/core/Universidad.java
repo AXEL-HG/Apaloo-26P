@@ -3,50 +3,48 @@ import Sistema_con_conexiones.sistema_universitario.src.academia.Departamento;
 import Sistema_con_conexiones.sistema_universitario.src.alumnos.Estudiante;
 import Sistema_con_conexiones.sistema_universitario.src.personal.Trabajador;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class Universidad {
     
-    //?Atributos
+    //? Atributos
     private String nombre;
     private String ciudad;
     private int fundacion;
+    private int capacidadMaxima; 
 
-    private Departamento[] departamentos;
-    private Estudiante[] estudiantes;
-    private Trabajador[] trabajadores;
+    private List<Departamento> departamentos = new ArrayList<>();
+    private List<Estudiante> estudiantes = new ArrayList<>();
+    private List<Trabajador> trabajadores = new ArrayList<>();
     
 
-    //?Constructor
+    //? Constructor
     public Universidad(String nombre, String ciudad, int fundacion, int capacidadMaxima) {
         this.nombre = nombre;
         this.ciudad = ciudad;
         this.fundacion = fundacion;
-        this.trabajadores = new Trabajador[capacidadMaxima];
-        this.estudiantes = new Estudiante[capacidadMaxima];
-        this.departamentos = new Departamento[capacidadMaxima];
-    }
+        this.capacidadMaxima = capacidadMaxima; 
+        }
     
-    //?Metodos
+    //? Metodos
 
     public void registrarEstudiante(Estudiante estudiante) {
-        for (int i = 0; i < estudiantes.length; i++) {
-            if (estudiantes[i] == null) {
-                estudiantes[i] = estudiante;
-                System.out.println("El estudiante: " + estudiante.getNombre() + " a sido registrado EXITOSAMENTE");
-                return;
-            }
+        if (estudiantes.size() < capacidadMaxima) {
+            estudiantes.add(estudiante);
+            System.out.println("El estudiante: " + estudiante.getNombre() + " ha sido registrado EXITOSAMENTE");
+        } else {
+            System.out.println("Error: El estudiante: " + estudiante.getNombre() + " no ha sido registrado debido a que el cupo ha alcanzado su máximo");
         }
-        System.out.println("Error: El estudiante: " + estudiante.getNombre() + " no ha sido registrado debido a que el cupo ha alcanzado su máximo");
     }
 
     public void contratarTrabajador(Trabajador trabajador) {
-        for (int i = 0; i < trabajadores.length; i++) {
-            if (trabajadores[i] == null) {
-                trabajadores[i] = trabajador;
-                System.out.println("El trabajador: " + trabajador.getNombre() + " ha sido contratado EXITOSAMENTE");
-                return;
-            }
+        if (trabajadores.size() < capacidadMaxima) {
+            trabajadores.add(trabajador);
+            System.out.println("El trabajador: " + trabajador.getNombre() + " ha sido contratado EXITOSAMENTE");
+        } else {
+            System.out.println("Error: El trabajador " + trabajador.getNombre() + " no pudo ser contratado, cupo máximo alcanzado.");
         }
-        System.out.println("Error: El trabajador " + trabajador.getNombre() + " no pudo ser contratado, cupo máximo alcanzado.");
     }
 
     public int buscarEstudiante(String nombre) {
@@ -54,8 +52,10 @@ public class Universidad {
     }
 
     private int busquedaRecursivaEstudiante(String nombre, int indice) {
-        if (indice >= estudiantes.length) return -1;
-        if (estudiantes[indice] != null && estudiantes[indice].getNombre().equalsIgnoreCase(nombre)) return indice;
+        if (indice >= estudiantes.size()) return -1;
+        
+        if (estudiantes.get(indice).getNombre().equalsIgnoreCase(nombre)) return indice;
+        
         return busquedaRecursivaEstudiante(nombre, indice + 1);
     }
 
@@ -64,18 +64,19 @@ public class Universidad {
     }
 
     private int busquedaRecursivaTrabajador(String nombre, int indice) {
-        if (indice >= trabajadores.length) return -1;
-        if (trabajadores[indice] != null && trabajadores[indice].getNombre().equalsIgnoreCase(nombre)) return indice;
+        if (indice >= trabajadores.size()) return -1;
+        if (trabajadores.get(indice).getNombre().equalsIgnoreCase(nombre)) return indice;
+        
         return busquedaRecursivaTrabajador(nombre, indice + 1);
     }
 
-    //?to String
+    //? to String
     @Override
     public String toString() {
         return "Universidad{Nombre: " + getNombre() + ", Ciudad: " + getCiudad() + ", Fundacion: " + getFundacion() + "}";
     }
 
-    //?Getters y setters
+    //? Getters y setters
     public String getNombre() {
         return nombre;
     }
@@ -95,26 +96,27 @@ public class Universidad {
         this.fundacion = fundacion;
     }
     
-    public Departamento[] getDepartamentos() {
+    public List<Departamento> getDepartamentos() {
         return departamentos;
     }
     
-    public void setDepartamentos(Departamento[] departamentos) {
+    public void setDepartamentos(List<Departamento> departamentos) {
         this.departamentos = departamentos;
     }
-    public Estudiante[] getEstudiantes() {
+    
+    public List<Estudiante> getEstudiantes() {
         return estudiantes;
     }
     
-    public void setEstudiantes(Estudiante[] estudiantes) {
+    public void setEstudiantes(List<Estudiante> estudiantes) {
         this.estudiantes = estudiantes;
     }
     
-    public Trabajador[] getTrabajadores() {
+    public List<Trabajador> getTrabajadores() {
         return trabajadores;
     }
 
-    public void setTrabajadores(Trabajador[] trabajador) {
-        this.trabajadores = trabajador;
+    public void setTrabajadores(List<Trabajador> trabajadores) {
+        this.trabajadores = trabajadores;
     }
 }
