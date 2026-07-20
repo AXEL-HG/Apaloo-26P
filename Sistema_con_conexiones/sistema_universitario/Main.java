@@ -12,15 +12,13 @@ public class Main {
     public static void main(String[] args) {
         
         System.out.println("=========================================================");
-        System.out.println("   INICIANDO SISTEMA UNIVERSITARIO Y BANCARIO V1.0");
+        System.out.println("   INICIANDO SISTEMA UNIVERSITARIO Y BANCARIO V3.0");
         System.out.println("=========================================================\n");
 
         Universidad uamIztapalapa = new Universidad("UAM Iztapalapa", "CDMX", 1974, 50);
 
-
         Estudiante goku = new Estudiante("KAME-9000", 5.5, LocalDate.now(Clock.systemUTC()), "Son Goku", "Montaña Paoz", LocalDate.of(1984, 11, 20));
         
-
         EstGrado axdeti = new EstGrado("CS-2026", 9.8, LocalDate.of(2025, 1, 1), "Erizo AXDETI", "Servidores Fedora Linux", LocalDate.of(2023, 5, 10), "Ciencias de la Computación", 150, false);
 
         PDI drSimi = new PDI("Dr. Simi", "Farmacias Similares", LocalDate.of(1997, 10, 1), 50000.0, "Profesor Investigador", LocalDate.of(2010, 5, 1), "Titular C", "Farmacología y Baile de Botargas", 40);
@@ -39,6 +37,9 @@ public class Main {
         uamIztapalapa.registrarEstudiante(axdeti);
         uamIztapalapa.contratarTrabajador(drSimi);
         uamIztapalapa.contratarTrabajador(mikeMentzer);
+
+        System.out.println("\n--- ORDENAMIENTO DE DATOS ---");
+        uamIztapalapa.ordenarEstudiantesPorNombre();
 
         System.out.println("\n--- SIMULACIÓN DE MÉTODOS ---");
         
@@ -64,10 +65,10 @@ public class Main {
         System.out.println("\n--- PRUEBA DE BÚSQUEDA RECURSIVA ---");
         
         int posGoku = uamIztapalapa.buscarEstudiante("Son Goku");
-        System.out.println("Goku se encuentra en la posición: " + posGoku + " del arreglo de estudiantes.");
+        System.out.println("Goku se encuentra en la posición: " + posGoku + " de la lista de estudiantes.");
         
         int posSimi = uamIztapalapa.buscarTrabajador("Dr. Simi");
-        System.out.println("El Dr. Simi se encuentra en la posición: " + posSimi + " del arreglo de trabajadores.");
+        System.out.println("El Dr. Simi se encuentra en la posición: " + posSimi + " de la lista de trabajadores.");
 
         int posFantasma = uamIztapalapa.buscarEstudiante("Alumno Que No Existe");
         System.out.println("Buscando alumno fantasma... Resultado: " + posFantasma + " (No encontrado)");

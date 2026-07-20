@@ -24,7 +24,7 @@ public class Universidad {
         this.ciudad = ciudad;
         this.fundacion = fundacion;
         this.capacidadMaxima = capacidadMaxima; 
-        }
+    }
     
     //? Metodos
 
@@ -67,6 +67,38 @@ public class Universidad {
         if (trabajadores.get(indice).getNombre().equalsIgnoreCase(nombre)) return indice;
         
         return busquedaRecursivaTrabajador(nombre, indice + 1);
+    }
+
+    public void ordenarEstudiantesPorNombre() {
+        if (estudiantes == null || estudiantes.isEmpty()) {
+            return; 
+        }
+
+        int n = estudiantes.size();
+        boolean huboIntercambio;
+
+        for (int i = 0; i < n - 1; i++) {
+            huboIntercambio = false;
+
+            for (int j = 0; j < n - 1 - i; j++) {
+                
+                String nombre1 = estudiantes.get(j).getNombre();
+                String nombre2 = estudiantes.get(j + 1).getNombre();
+
+                if (nombre1.compareToIgnoreCase(nombre2) > 0) {
+                    Estudiante temp = estudiantes.get(j);
+                    estudiantes.set(j, estudiantes.get(j + 1));
+                    estudiantes.set(j + 1, temp);
+                    
+                    huboIntercambio = true;
+                }
+            }
+
+            if (!huboIntercambio) {
+                break;
+            }
+        }
+        System.out.println("Los estudiantes han sido ordenados alfabéticamente (Método Burbuja).");
     }
 
     //? to String

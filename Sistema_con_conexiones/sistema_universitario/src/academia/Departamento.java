@@ -51,6 +51,39 @@ public class Departamento {
         return busquedaRecursivaProfesor(nombre, indice + 1);
     }
 
+    public void ordenarProfesoresPorNombre() {
+        if (profesores == null || profesores.isEmpty()) {
+            return; 
+        }
+
+        int n = profesores.size();
+        boolean huboIntercambio;
+
+        for (int i = 0; i < n - 1; i++) {
+            huboIntercambio = false;
+
+            for (int j = 0; j < n - 1 - i; j++) {
+                
+                String nombre1 = profesores.get(j).getNombre();
+                String nombre2 = profesores.get(j + 1).getNombre();
+
+                if (nombre1.compareToIgnoreCase(nombre2) > 0) {
+                    PDI temp = profesores.get(j);
+                    
+                    profesores.set(j, profesores.get(j + 1));
+                    profesores.set(j + 1, temp);
+                    
+                    huboIntercambio = true;
+                }
+            }
+
+            if (!huboIntercambio) {
+                break;
+            }
+        }
+        System.out.println("Los profesores del departamento " + this.nombre + " han sido ordenados alfabéticamente.");
+    }
+
     //? To String
     @Override
     public String toString() {

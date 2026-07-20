@@ -7,14 +7,14 @@ import Sistema_con_conexiones.Banco.CuentaCorriente;
 
 public class Trabajador extends Persona{
 
-    //?Atributos -----------------------------
+    //?Atributos 
     private LocalDate fechaIngreso;
     private String puesto;
     private Double salario;
     private CuentaCorriente CuentaBancaria;
     
     
-    //?Constructor ------------------------------
+    //?Constructor 
     public Trabajador(String nombre, String direccion, LocalDate fechaNacimiento, Double salario, String puesto, LocalDate fechaIngreso) {
         super(nombre, direccion, fechaNacimiento);
         
@@ -40,7 +40,7 @@ public class Trabajador extends Persona{
         return "Trabajador{Puesto: " + getPuesto() + " Salario: " + getSalario() + " Fecha de ingreso: " + getFechaIngreso() + super.toString() + "}";
     }
 
-    //?Getters y setters -----------------
+    //?Getters y setters 
     public LocalDate getFechaIngreso() {
         return fechaIngreso;
     }
