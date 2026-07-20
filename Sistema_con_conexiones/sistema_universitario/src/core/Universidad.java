@@ -2,7 +2,6 @@ package Sistema_con_conexiones.sistema_universitario.src.core;
 import Sistema_con_conexiones.sistema_universitario.src.academia.Departamento;
 import Sistema_con_conexiones.sistema_universitario.src.alumnos.Estudiante;
 import Sistema_con_conexiones.sistema_universitario.src.personal.Trabajador;
-
 import java.util.List;
 import java.util.ArrayList;
 
