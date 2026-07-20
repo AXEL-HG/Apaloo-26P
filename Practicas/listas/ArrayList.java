@@ -281,7 +281,7 @@ public class ArrayList<E> implements Lista<E> {
         @SuppressWarnings("unchecked")
         E elemento = (E) datos[posicion];
 
-        if (posicion < indice - 1) {
+        if (posicion < -indice - 1) {
             System.arraycopy(datos, posicion + 1, datos, posicion, indice - posicion - 1);
         }
 

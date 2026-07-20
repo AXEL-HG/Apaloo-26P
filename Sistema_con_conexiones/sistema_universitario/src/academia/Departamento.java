@@ -1,6 +1,7 @@
 package Sistema_con_conexiones.sistema_universitario.src.academia;
-
 import Sistema_con_conexiones.sistema_universitario.src.personal.PDI;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Departamento {
     
@@ -8,37 +9,34 @@ public class Departamento {
     private String nombre;
     private String codigo;
     private String ubicacion;
-    private PDI[] profesores;
+    private int capacidadMaxima;
+    private List<PDI> profesores = new ArrayList<>();
     
     //?Constructor
     public Departamento(String nombre, String codigo, String ubicacion, int capacidadMaxima) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.ubicacion = ubicacion;
-        this.profesores = new PDI[capacidadMaxima];
+        this.capacidadMaxima = capacidadMaxima;
     }
 
     //?Metodos
     public void asignarProfesor(PDI profesor) {
 
-        for(int i = 0; i < profesores.length; i++) {
-            if (profesores[i] == null) {
-                profesores[i] = profesor;
-                System.out.println("El profesor: " + profesor.getNombre() + " ha sido asignado al departamento: " + this.nombre);
-                return;
-            }
+        if (profesores.size() < capacidadMaxima) {
+            profesores.add(profesor);
+            System.out.println("El profesor: " + profesor.getNombre() + " ha sido asignado al departamento: " + this.nombre);
+        } else {
+            System.out.println("El profesor: " + profesor.getNombre() + " no ha podido ser asignado al departamento: " + this.nombre + " debido a que el cupo ya esta lleno");
         }
-        System.out.println("Error: el profersor: " + profesor.getNombre() + " no ha podido ser registrado al departamento departamento: " + this.nombre + " ya esta lleno");
 
     }
 
     public void listarPersonal(){
 
         System.out.println("------------------------Personal del departamento---------------------");
-        for (int i = 0; i < profesores.length; i++) {
-            if (profesores[i] != null) {
-                System.out.println(profesores[i].toString());
-            }
+        for (PDI profesor : profesores) {
+            System.out.println(profesor.toString());
         }
     }
 
@@ -47,8 +45,9 @@ public class Departamento {
     }
 
     private int busquedaRecursivaProfesor(String nombre, int indice) {
-        if (indice >= profesores.length) return -1;
-        if (profesores[indice] != null && profesores[indice].getNombre().equalsIgnoreCase(nombre)) return indice;
+        if (indice >= profesores.size()) return -1;
+        if (profesores.get(indice).getNombre().equalsIgnoreCase(nombre)) return indice;
+        
         return busquedaRecursivaProfesor(nombre, indice + 1);
     }
 
@@ -57,7 +56,6 @@ public class Departamento {
     public String toString() {
         return "Departamento{Nombre: " + getNombre() + ", Codigo: " + getCodigo() + ", Ubicacion: " + getUbicacion() + "}";
     }
-    
 
     //?Getters y setters
 
@@ -85,11 +83,11 @@ public class Departamento {
         this.ubicacion = ubicacion;
     }
 
-    public PDI[] getProfesores() {
+    public List<PDI> getProfesores() {
         return profesores;
     }
 
-    public void setProfesores(PDI[] profesores) {
+    public void setProfesores(List<PDI> profesores) {
         this.profesores = profesores;
     }
 
